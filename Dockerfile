@@ -22,8 +22,11 @@ COPY . /app
 # Debug: Show contents of /app
 RUN ls -la /app
 
-# Install Python dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
+# Debug: Show contents of requirements.txt
+RUN cat requirements.txt
+
+# Install Python dependencies with verbose output
+RUN pip3 install --no-cache-dir -r requirements.txt --verbose
 
 # Run the application
 CMD ["python3", "app.py"]
